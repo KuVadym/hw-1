@@ -1,7 +1,6 @@
 from abc import abstractmethod, ABCMeta
 import json
 import pickle
-s = "1. 2, 3, 7"
 
 class Meta(type):
     def __new__(*args):
