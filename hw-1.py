@@ -1,6 +1,7 @@
 from abc import abstractmethod, ABCMeta
 import json
 import pickle
+s = "1. 2, 3, 7"
 
 class Meta(type):
     def __new__(*args):
@@ -49,3 +50,20 @@ class SerializationBin(SerializationInterface):
         with open(file_name, "wb") as fh:
             pickle.dump(some_data, fh)
 
+
+
+
+sj = SerializationJson()
+sb = SerializationBin()
+
+sj.save_data_json(s)
+sb.save_data_bin(s)
+file_name = "data.json"
+with open(file_name, "r") as fh:
+    unpacked = json.load(fh)
+print (unpacked)
+
+file_name = "data.bin"
+with open(file_name, "rb") as fh:
+    unpacked = pickle.load(fh)
+print (unpacked)
