@@ -43,13 +43,16 @@ class SerializationJson(SerializationInterface):
         file_name = "data.json"
         with open(file_name, "w") as fh:
             json.dump(some_data, fh)
+        def save_data_bin(self, some_data):
+            pass
 
 class SerializationBin(SerializationInterface):
     def save_data_bin(self, some_data):
         file_name = "data.bin"
         with open(file_name, "wb") as fh:
             pickle.dump(some_data, fh)
-
+    def save_data_json(self, some_data):
+        pass
 
 
 
@@ -67,3 +70,4 @@ file_name = "data.bin"
 with open(file_name, "rb") as fh:
     unpacked = pickle.load(fh)
 print (unpacked)
+sb.save_data_json(s)
